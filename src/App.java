@@ -3,12 +3,12 @@ public class App {
     abstract static class Car{
         protected String brand;
         protected String model;
-        protected short year;
+        protected int year;
         protected float clock = 12.00f;
-        protected byte day = 2;
-        protected byte month = 9;
-        protected short yearNow = 2026;
-        Car(String brand, String model, short year){
+        protected int day = 2;
+        protected int month = 9;
+        protected int yearNow = 2026;
+        Car(String brand, String model, int year){
             this.brand = brand;
             this.model = model;
             this.year = year;
@@ -19,11 +19,11 @@ public class App {
         void stopCar(String brand, String model){
             System.out.println("car is Stoping: "+ brand + " " + model);
         }
-        abstract void displayCarInforamtion(String brand, String model, short year, float cloack, byte day, byte month,short yearNow);
+        abstract void displayCarInforamtion();
     }
     static class SportsCar extends Car{
-        private short maxSpeed;
-        SportsCar(String brand, String model, short year, short maxSpeed){
+        private int maxSpeed;
+        SportsCar(String brand, String model, int year, int maxSpeed){
             super(brand, model, year);
             this.maxSpeed = maxSpeed;
         }
@@ -31,15 +31,11 @@ public class App {
             System.out.println(maxSpeed);
         }
         @Override
-        void displayCarInforamtion(String brand, String model, short year, float cloack, byte day, byte month,short yearNow){
-            System.out.print("Brand: " + brand);
-            System.out.print(" Model: " + model);
-            System.out.print(" Year: " + year);
-            System.out.println("Max Speed: " + maxSpeed);
-            System.out.print("Clock: " + cloack);
-            System.out.print(" - Day: " + day);
-            System.out.print(" - Month: " + month);
-            System.out.println(" - YearNow: " + yearNow);
+        void displayCarInforamtion(){
+            System.out.print("-car: " + brand + " " + model + " " + year);
+            System.out.println(" Max Speed: " + maxSpeed);
+            System.out.print(" \nClock: " + clock);
+            System.out.print(" - Day: " + day + " - " + month + " - " + yearNow);
         }
     }
 
@@ -53,18 +49,15 @@ public class App {
             System.out.println(loadCapacity);
         }
         @Override
-        void displayCarInforamtion(String brand, String model, short year, float cloack, byte day, byte month,short yearNow){
-            System.out.print("Brand: " + brand);
-            System.out.print(" Model: " + model);
-            System.out.print(" Year: " + year);
-            System.out.println("load capacity: " + loadCapacity);
-            System.out.print("Clock: " + cloack);
-            System.out.print(" - Day: " + day);
-            System.out.print(" - Month: " + month);
-            System.out.println(" - YearNow: " + yearNow);
+        void displayCarInforamtion(){
+            System.out.print("-car: " + brand + " " + model + " " + year);
+            System.out.println(" load capacity: " + loadCapacity);
+            System.out.print(" - Clock: " + clock);
+            System.out.print(" - Day: " + day + " - " + month + " - " + yearNow);
         }
     }
     public static void main(String[] args) throws Exception {
-        
+        Car sc1 = new SportsCar("Alfa Romeo", " Gulia", 2020, 260);
+        sc1.displayCarInforamtion();
     }
 }
