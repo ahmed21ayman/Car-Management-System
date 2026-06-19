@@ -42,8 +42,29 @@ public class App {
             System.out.println(" - YearNow: " + yearNow);
         }
     }
-    
+
+    static class Truck extends Car{
+        private int loadCapacity;
+        Truck(String brand, String model, short year, int loadCapacity){
+            super(brand, model, year);
+            this.loadCapacity = loadCapacity;
+        }
+        void showLoadCapacity(){
+            System.out.println(loadCapacity);
+        }
+        @Override
+        void displayCarInforamtion(String brand, String model, short year, float cloack, byte day, byte month,short yearNow){
+            System.out.print("Brand: " + brand);
+            System.out.print(" Model: " + model);
+            System.out.print(" Year: " + year);
+            System.out.println("load capacity: " + loadCapacity);
+            System.out.print("Clock: " + cloack);
+            System.out.print(" - Day: " + day);
+            System.out.print(" - Month: " + month);
+            System.out.println(" - YearNow: " + yearNow);
+        }
+    }
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
     }
 }
