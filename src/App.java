@@ -13,10 +13,10 @@ public class App {
             this.model = model;
             this.year = year;
         }
-        void startCar(String brand, String model){
+        void startCar(){
             System.out.println("car is starting: "+ brand + " " + model);
         }
-        void stopCar(String brand, String model){
+        void stopCar(){
             System.out.println("car is Stoping: "+ brand + " " + model);
         }
         abstract void displayCarInforamtion();
@@ -28,36 +28,44 @@ public class App {
             this.maxSpeed = maxSpeed;
         }
         void showMaxSpeed(){
-            System.out.println(maxSpeed);
+            System.out.println("Max Speed: " + maxSpeed);
         }
         @Override
         void displayCarInforamtion(){
             System.out.print("-car: " + brand + " " + model + " " + year);
             System.out.println(" Max Speed: " + maxSpeed);
             System.out.print(" \nClock: " + clock);
-            System.out.print(" - Day: " + day + " - " + month + " - " + yearNow);
+            System.out.println(" - Day: " + day + " - " + month + " - " + yearNow);
         }
     }
 
     static class Truck extends Car{
         private int loadCapacity;
-        Truck(String brand, String model, short year, int loadCapacity){
+        Truck(String brand, String model, int year, int loadCapacity){
             super(brand, model, year);
             this.loadCapacity = loadCapacity;
         }
         void showLoadCapacity(){
-            System.out.println(loadCapacity);
+            System.out.println("Capacity: " + loadCapacity);
         }
         @Override
         void displayCarInforamtion(){
             System.out.print("-car: " + brand + " " + model + " " + year);
             System.out.println(" load capacity: " + loadCapacity);
             System.out.print(" - Clock: " + clock);
-            System.out.print(" - Day: " + day + " - " + month + " - " + yearNow);
+            System.out.println(" - Day: " + day + " - " + month + " - " + yearNow);
         }
     }
     public static void main(String[] args) throws Exception {
-        Car sc1 = new SportsCar("Alfa Romeo", " Gulia", 2020, 260);
+        SportsCar sc1 = new SportsCar("Alfa Romeo", " Gulia", 2020, 260);
+        sc1.startCar();
         sc1.displayCarInforamtion();
+        sc1.showMaxSpeed();
+        sc1.stopCar();
+        Truck tc1 = new Truck("volvo", "truck", 2022, 5000);
+        tc1.startCar();
+        tc1.displayCarInforamtion();
+        tc1.showLoadCapacity();
+        tc1.stopCar();
     }
 }
